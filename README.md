@@ -7,6 +7,7 @@ akharc Platform repository
 
 ## В процессе сделано:
 1.Разберитесь почему все pod в namespace kube-system восстановились после удаления. 
+    
     1.а Pod coredns восстановился из-за использования механизма replica set, который восстанавливает его работу
     2.b Остальные поды - это static pods, работой которых управляет kubelet. kubelet заущен как сервис, соответственно, пока сервис работает - поды будут пересоздаваться.
     
@@ -31,6 +32,7 @@ akharc Platform repository
      CGroup: /system.slice/kubelet.service
              └─1243 /var/lib/minikube/binaries/v1.26.3/kubelet --bootstrap-kubeconfig=/etc/kubernetes/bootstrap-kubelet.conf --config=/var/lib/kub
 2. POD с веб-сервером
+    
     2.а Был создан Dockerfile на основе образа nginx:alpine, c uid  1001, который слушает на порту 8000. Образ запушен в Докерхаб:
     
       docker build -t nginx-otus-k8s .
@@ -42,6 +44,7 @@ akharc Platform repository
       kubectl apply -f web-pod.yaml
       kubectl port-forward --address 0.0.0.0 pod/web 8000:8000
 3. Hipster Shop
+    
     3.а Склонирован репо microservices-demo, собран образ hipster-frontend, запушен в Докерхаб, сформирован манифест для пода:
     
       docker build -t hipster-frontend-k8s .
