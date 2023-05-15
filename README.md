@@ -36,6 +36,7 @@ akharc Platform repository
       docker build -t nginx-otus-k8s .
       docker tag nginx-otus-k8s akha/otus-k8s
       docker push akha/otus-k8s
+    
     2.b Создан манифест пода с init-контейнером и volumes на основе образа из предыдущего пункта.Содержимое доступно по адресу http://localhost:8000/
     
       kubectl apply -f web-pod.yaml
@@ -47,11 +48,13 @@ akharc Platform repository
       docker tag hipster-frontend-k8s akha/otus-frontend-k8s
       docker push akha/otus-frontend-k8s
       kubectl run frontend --image akha/otus-frontend-k8s --restart=Never  --dry-run -o yaml > frontend-pod.yaml 
+    
     3.b ЗАДАНИЕ СО ЗВЕЗДОЧКОЙ. Под frontend не запускается, т.к. не описаны требуемые переменные окружения:
     
       panic: environment variable "PRODUCT_CATALOG_SERVICE_ADDR" not set
 
     Исправлено в манифесте frontend-pod-healthy.yaml
+    
       kubectl apply -f frontend-pod-healthy.yaml
       [akha@192 kubernetes-intro]$ kubectl get pods
       NAME       READY   STATUS    RESTARTS   AGE
