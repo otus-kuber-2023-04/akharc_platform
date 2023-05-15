@@ -32,20 +32,25 @@ akharc Platform repository
              └─1243 /var/lib/minikube/binaries/v1.26.3/kubelet --bootstrap-kubeconfig=/etc/kubernetes/bootstrap-kubelet.conf --config=/var/lib/kub
 2. POD с веб-сервером
     2.а Был создан Dockerfile на основе образа nginx:alpine, c uid  1001, который слушает на порту 8000. Образ запушен в Докерхаб:
+    
       docker build -t nginx-otus-k8s .
       docker tag nginx-otus-k8s akha/otus-k8s
       docker push akha/otus-k8s
     2.b Создан манифест пода с init-контейнером и volumes на основе образа из предыдущего пункта.Содержимое доступно по адресу http://localhost:8000/
+    
       kubectl apply -f web-pod.yaml
       kubectl port-forward --address 0.0.0.0 pod/web 8000:8000
 3. Hipster Shop
     3.а Склонирован репо microservices-demo, собран образ hipster-frontend, запушен в Докерхаб, сформирован манифест для пода:
+    
       docker build -t hipster-frontend-k8s .
       docker tag hipster-frontend-k8s akha/otus-frontend-k8s
       docker push akha/otus-frontend-k8s
       kubectl run frontend --image akha/otus-frontend-k8s --restart=Never  --dry-run -o yaml > frontend-pod.yaml 
     3.b ЗАДАНИЕ СО ЗВЕЗДОЧКОЙ. Под frontend не запускается, т.к. не описаны требуемые переменные окружения:
+    
       panic: environment variable "PRODUCT_CATALOG_SERVICE_ADDR" not set
+
     Исправлено в манифесте frontend-pod-healthy.yaml
       kubectl apply -f frontend-pod-healthy.yaml
       [akha@192 kubernetes-intro]$ kubectl get pods
