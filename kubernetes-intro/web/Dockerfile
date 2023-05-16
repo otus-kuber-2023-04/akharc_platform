@@ -6,7 +6,6 @@ RUN adduser -D -u 1001 -g www www && \
     chown -R www:www /run/nginx && \
     chown -R www:www /var/log/nginx && \
     chown -R www:www /var/cache/nginx
-
 COPY nginx.conf /etc/nginx/nginx.conf
 USER 1001
 EXPOSE 8000
