@@ -68,3 +68,4 @@ akharc Platform repository
 перейти по ссылке http://localhost:8080
 ## PR checklist:
  - [*] Выставлен label с темой домашнего задания
+##
