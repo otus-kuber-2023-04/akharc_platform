@@ -63,7 +63,7 @@ akharc Platform repository
       NAME       READY   STATUS    RESTARTS   AGE
       frontend   1/1     Running   0          4s
 ## Как запустить проект:
-
+##
 ## Как проверить работоспособность:
 перейти по ссылке http://localhost:8080
 ## PR checklist:
