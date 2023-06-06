@@ -17,12 +17,12 @@ spec:
       containers:
       - name: minio
         env:
-        - name: MINIO_SECRET_USERNAME
+        - name: MINIO_ROOT_USER
           valueFrom:
             secretKeyRef:
               name: minio
               key: username
-        - name: MINIO_SECRET_PASSWORD
+        - name: MINIO_ROOT_PASSWORD
           valueFrom:
             secretKeyRef:
               name: minio
