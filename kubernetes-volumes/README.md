@@ -49,6 +49,8 @@ apiVersion: v1
 kind: Secret
 metadata:
   name: minio
+  labels:
+    app: minio
 type: Opaque
 data:
   username: bWluaW8=
