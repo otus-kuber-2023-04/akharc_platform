@@ -20,9 +20,6 @@ akharc Platform repository
 ```shell
 curl -sSL https://storage.yandexcloud.net/yandexcloud-yc/install.sh | bash
 yc init
-[akha@192 akharc_platform]$ yc config list
-cloud-id: b1g5fjugjkch6hcqqnok
-folder-id: b1gnh3c0khmhhi97erbd
 
 yc managed-kubernetes cluster get-credentials otus-akha --external
 ```
