@@ -14,7 +14,6 @@ akharc Platform repository
 - Поставили nginx-ingress,cert-manager, chartmuseum, harbor при помощи helm-чартов, начуились готовить values
 - Поставили hipster-shopс помощью собственного чарта
 
-158.160.70.238
 ## Как проверить работоспособность:
  - Prereq: настраиваем утилиту YC:
 по инструкции https://cloud.yandex.ru/docs/cli/quickstart#install
@@ -22,7 +21,6 @@ akharc Platform repository
 curl -sSL https://storage.yandexcloud.net/yandexcloud-yc/install.sh | bash
 yc init
 [akha@192 akharc_platform]$ yc config list
-token: y0_AgAAAAAvfA_GAATuwQAAAADoepFlq2Q7kfMyStWjsJcCBsKhQE_M_xE
 cloud-id: b1g5fjugjkch6hcqqnok
 folder-id: b1gnh3c0khmhhi97erbd
 
